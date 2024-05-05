@@ -40,3 +40,8 @@ iptables -A FORWARD -p tcp -s 192.168.60.0/24 -d 192.168.60.0/24 -i eth1 -o eth1
 iptables -A FORWARD -m conntrack --ctstate NEW,ESTABLISHED -s 192.168.60.0/24 -o eth0 -j ACCEPT
 iptables -A FORWARD -m conntrack --ctstate ESTABLISHED -i eth0 -d 192.168.60.0/24 -j ACCEPT
 ```
+
+# 6
+``` shell
+sudo iptables -A OUTPUT -p icmp -d 8.8.8.8 -j LOG --log-prefix "ICMP to Google! "
+```
